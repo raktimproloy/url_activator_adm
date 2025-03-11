@@ -1,8 +1,36 @@
 <x-layouts.app title="Dashboard">
-
     <div class="container">
         <h2 class="text-2xl font-bold text-white">Subscriptions View</h2>
-        
+
+        <!-- Search and Filters -->
+        <div class="my-4 flex space-x-4">
+            <!-- Search Input -->
+            <form action="{{ route('users.index') }}" method="GET" class="flex-grow">
+                <input type="text" name="search" placeholder="Search by name or email" value="{{ request('search') }}" class="px-4 py-2 rounded-lg bg-gray-700 text-white w-full">
+            </form>
+
+            <!-- Filter Dropdowns -->
+            <div class="flex space-x-4">
+                <!-- Sort by Created At -->
+                <form action="{{ route('users.index') }}" method="GET">
+                    <select name="sort" onchange="this.form.submit()" class="px-4 py-2 rounded-lg bg-gray-700 text-white">
+                        <option value="asc" {{ request('sort') == 'asc' ? 'selected' : '' }}>Oldest First</option>
+                        <option value="desc" {{ request('sort') == 'desc' ? 'selected' : '' }}>Newest First</option>
+                    </select>
+                </form>
+
+                <!-- Filter by Status -->
+                <form action="{{ route('users.index') }}" method="GET">
+                    <select name="status" onchange="this.form.submit()" class="px-4 py-2 rounded-lg bg-gray-700 text-white">
+                        <option value="">All Statuses</option>
+                        <option value="active" {{ request('status') == 'active' ? 'selected' : '' }}>Active</option>
+                        <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+        <!-- Table -->
         <table class="min-w-full table-auto text-white mt-4 bg-gray-800 shadow-md rounded-lg">
             <thead class="bg-gray-900">
                 <tr>
@@ -37,10 +65,8 @@
                         </form>
                     </td>
                 </tr>
-
                 @endforeach
             </tbody>
         </table>
     </div>
-
 </x-layouts.app>

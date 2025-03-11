@@ -72,7 +72,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/newsletters/{id}', [NewsletterController::class, 'destroy'])->name('newsletters.destroy');
 
     
-    Route::get('/contacts', action: [ContactController::class, 'index'])->name('contacts');
+    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
 
     Route::get('/admin', action: [AdminController::class, 'index'])->name('admin');
@@ -81,20 +82,19 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
 
-    Route::get('/users', action: [UserController::class, 'index'])->name('users');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
-    
 
 
-    Route::get('/packages', action: [PackageManagerController::class, 'index'])->name('packages');
+    Route::get('/packages', [PackageManagerController::class, 'index'])->name('packages.index');
     Route::get('/packages/{id}/edit', [PackageManagerController::class, 'edit'])->name('packages.edit');
     Route::put('/packages/{id}', [PackageManagerController::class, 'update'])->name('packages.update');
     Route::delete('/packages/{id}', [PackageManagerController::class, 'destroy'])->name('packages.destroy');
 
 
-    Route::get('/subscriptions', action: [SubscriptionController::class, 'index'])->name('subscriptions');
+    Route::get('/subscriptions', action: [SubscriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/{id}/edit', [SubscriptionController::class, 'edit'])->name('subscriptions.edit');
     Route::put('/subscriptions/{id}', [SubscriptionController::class, 'update'])->name('subscriptions.update');
     Route::delete('/subscriptions/{id}', [SubscriptionController::class, 'destroy'])->name('subscriptions.destroy');

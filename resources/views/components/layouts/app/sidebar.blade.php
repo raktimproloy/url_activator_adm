@@ -21,20 +21,20 @@
                 <!-- Management Section -->
                 <flux:navlist.group :heading="__('Management')" class="grid">
                     <flux:navlist.item icon="user" :href="route('admin')" :current="request()->routeIs('admin')" wire:navigate>{{ __('admin') }}</flux:navlist.item>
-                    <flux:navlist.item icon="shield-check" :href="route('users')" :current="request()->routeIs('users')" wire:navigate>{{ __('Users Panel') }}</flux:navlist.item>
-                    <flux:navlist.item icon="shield-check" :href="route('packages')" :current="request()->routeIs('packages')" wire:navigate>{{ __('Package Manager') }}</flux:navlist.item>
+                    <flux:navlist.item icon="shield-check" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>{{ __('Users Panel') }}</flux:navlist.item>
+                    <flux:navlist.item icon="shield-check" :href="route('packages.index')" :current="request()->routeIs('packages.index')" wire:navigate>{{ __('Package Manager') }}</flux:navlist.item>
 
                 </flux:navlist.group>
 
                 <!-- Subscription & Payment -->
                 <flux:navlist.group :heading="__('Subscription & Payment')" class="grid">
                     <flux:navlist.item icon="credit-card" :href="route('pricing')" :current="request()->routeIs('pricing')" wire:navigate>{{ __('Pricing') }}</flux:navlist.item>
-                    <flux:navlist.item icon="shield-check" :href="route('subscriptions')" :current="request()->routeIs('subscriptions')" wire:navigate>{{ __('Subscriptions') }}</flux:navlist.item>
+                    <flux:navlist.item icon="shield-check" :href="route('subscriptions.index')" :current="request()->routeIs('subscriptions.index')" wire:navigate>{{ __('Subscriptions') }}</flux:navlist.item>
                 </flux:navlist.group>
 
                 <!-- Support Section -->
                 <flux:navlist.group :heading="__('Support')" class="grid">
-                    <flux:navlist.item icon="shield-check" :href="route('contacts')" :current="request()->routeIs('contacts')" wire:navigate>{{ __('Contacts') }}</flux:navlist.item>
+                    <flux:navlist.item icon="shield-check" :href="route('contacts.index')" :current="request()->routeIs('contacts.index')" wire:navigate>{{ __('Contacts') }}</flux:navlist.item>
 
                     <flux:navlist.item icon="book-open" :href="route('newsletters')" :current="request()->routeIs('newsletters')" wire:navigate>{{ __('Newsletters') }}</flux:navlist.item>
                 </flux:navlist.group>
